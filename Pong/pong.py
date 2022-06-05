@@ -41,6 +41,8 @@ ball.color("white")
 ball.penup()
 ball.goto(0, 0)
 # speed factor
+# TODO add randomization of how ball moves at start
+# TODO incrementally increase speed of ball as time progresses
 ball.dx = .03
 ball.dy = .03
 
@@ -52,8 +54,7 @@ pen.color("white")
 pen.penup()
 pen.hideturtle()
 pen.goto(0, 260)
-# Resets scorecard each time score is updated
-pen.clear()
+
 
 # TODO  Add ability for users to pass along their names
 pen.write("Player A: 0 Player B: 0", align="center", font=("Courier", 24, "normal"))
@@ -103,6 +104,8 @@ while True:
     ball.sety(ball.ycor() + ball.dy)
 
     # Border boundary/physics
+
+    # Top/Bottom boundaries
     if ball.ycor() > 290:
         # Reset ball to avoid any issues
         ball.sety(290)
@@ -112,17 +115,21 @@ while True:
         ball.sety(-290)
         ball.dy *= -1
 
-    if ball.xcor() > 390:
+    # Left/Right boundaries
+    if ball.xcor() > 350:
         # Reset upon scoring
         ball.goto(0, 0)
         ball.dx *= -1
         score_a += 1
+        # Resets scorecard each time score is updated
+        pen.clear()
         pen.write("Player A: {} Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
     
-    if ball.xcor() < -390:
+    if ball.xcor() < -350:
         ball.goto(0, 0)
         ball.dx *= -1
         score_b += 1
+        pen.clear()
         pen.write("Player A: {} Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
 
     # Paddle and ball collisions
