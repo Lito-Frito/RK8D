@@ -96,6 +96,7 @@ wn.onkeypress(paddle_b_down, "Down")
 
 
 # Main game loop
+# TODO add score limit or limit to # of rounds
 while True:
     wn.update()
 
