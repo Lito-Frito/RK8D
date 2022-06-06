@@ -1,5 +1,9 @@
-import Pong.pong
+print("Hello friend.")
+input("Let's play a few games!")
 
-print("Hello user, let's play a game!")
+print("\nI'll boot up pong for you and a friend.")
+input("Booting... Press ENTER to commence!")
 
-Pong.pong
+import Pong.pong as game
+
+# game
