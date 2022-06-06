@@ -1,5 +1,12 @@
 from termios import TIOCPKT_DOSTOP
 import turtle
+import sys
+import os
+
+if os.environ.get('DISPLAY','') == '':
+    print('no display found. Using :0.0')
+    os.environ.__setitem__('DISPLAY', ':0.0')
+
 
 wn = turtle.Screen()
 wn.title("Pong by @crc8109")
