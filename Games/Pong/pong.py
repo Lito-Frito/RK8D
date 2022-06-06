@@ -57,7 +57,6 @@ def game_loop(playerA, playerB):
     pen.penup()
     pen.hideturtle()
     pen.goto(0, 260)
-    # TODO  Add ability for users to pass along their names
     pen.write(f"{playerA}: 0 {playerB}: 0", align="center", font=("Courier", 24, "normal"))
 
 
