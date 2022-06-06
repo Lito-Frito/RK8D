@@ -15,6 +15,7 @@ score_a = 0
 score_b = 0
 
 # Paddle A
+# TODO add bumper physics to dx where SPACEBAR adds horizontal momentum
 paddle_a = turtle.Turtle()
 paddle_a.speed(0)
 paddle_a.shape("square")
@@ -42,8 +43,7 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-# speed factor: random value between a certain range
-# TODO incrementally increase speed of ball as time progresses
+# speed factor: random value between a certain rangeW
 ball.dx = random.uniform(0.02, 0.04)
 ball.dy = random.uniform(0.02, 0.04)
 
@@ -137,8 +137,8 @@ while True:
     # Paddle and ball collisions
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() -50): # 50 ensures edges of paddle count as hits
         ball.setx(340)
-        ball.dx *= -1
+        ball.dx *= -1.1
     
-    if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() -50): # 50 ensures edges of paddle count as hits
+    if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() -50):
         ball.setx(-340)
-        ball.dx *= -1
+        ball.dx *= -1.1
