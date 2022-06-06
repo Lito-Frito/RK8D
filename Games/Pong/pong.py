@@ -1,5 +1,6 @@
 from termios import TIOCPKT_DOSTOP
 import turtle
+import random
 
 
 wn = turtle.Screen()
@@ -41,22 +42,19 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-# speed factor
-# TODO add randomization of how ball moves at start
+# speed factor: random value between a certain range
 # TODO incrementally increase speed of ball as time progresses
-ball.dx = .03
-ball.dy = .03
+ball.dx = random.uniform(0.02, 0.04)
+ball.dy = random.uniform(0.02, 0.04)
 
 
-# Pen
+# Pen/Scorecard
 pen = turtle.Turtle()
 pen.speed(0)
 pen.color("white")
 pen.penup()
 pen.hideturtle()
 pen.goto(0, 260)
-
-
 # TODO  Add ability for users to pass along their names
 pen.write("Player A: 0 Player B: 0", align="center", font=("Courier", 24, "normal"))
 
@@ -121,7 +119,8 @@ while True:
     if ball.xcor() > 350:
         # Reset upon scoring
         ball.goto(0, 0)
-        ball.dx *= -1
+        ball.dy = -random.uniform(0.02, 0.04)
+        ball.dx = -random.uniform(0.02, 0.04)
         score_a += 1
         # Resets scorecard each time score is updated
         pen.clear()
@@ -129,7 +128,8 @@ while True:
     
     if ball.xcor() < -350:
         ball.goto(0, 0)
-        ball.dx *= -1
+        ball.dy = random.uniform(0.02, 0.04)
+        ball.dx = random.uniform(0.02, 0.04)
         score_b += 1
         pen.clear()
         pen.write("Player A: {} Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
