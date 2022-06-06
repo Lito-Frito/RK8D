@@ -3,7 +3,7 @@ import turtle
 import random
 
 
-def game_loop():
+def game_loop(playerA, playerB):
 
     wn = turtle.Screen()
     wn.title("Pong by @crc8109")
@@ -58,7 +58,7 @@ def game_loop():
     pen.hideturtle()
     pen.goto(0, 260)
     # TODO  Add ability for users to pass along their names
-    pen.write("Player A: 0 Player B: 0", align="center", font=("Courier", 24, "normal"))
+    pen.write(f"{playerA}: 0 {playerB}: 0", align="center", font=("Courier", 24, "normal"))
 
 
     # Control Functions
@@ -95,12 +95,14 @@ def game_loop():
     wn.onkeypress(paddle_b_up, "Up")
     wn.onkeypress(paddle_b_down, "Down")
 
+    game_not_over = True
 
     # Main game loop
-    # TODO add score limit or limit to # of rounds
+    while game_not_over:
 
-    while True:
         wn.update()
+
+        winning_goal = 5
 
         # Move ball
         ball.setx(ball.xcor() + ball.dx)
@@ -127,15 +129,26 @@ def game_loop():
             score_a += 1
             # Resets scorecard each time score is updated
             pen.clear()
-            pen.write("Player A: {} Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
-        
+            pen.write("{}: {} {}: {}".format(playerA, score_a, playerB, score_b), align="center", font=("Courier", 24, "normal"))
+
+            # if a winning goal is scored, terminate the game and let the players know who won
+            if score_a >= 5:
+                game_not_over = False
+                pen.clear()
+                pen.write(f"{playerA} wins!", align="center", font=("Courier", 24, "normal"))
+
         if ball.xcor() < -350:
             ball.goto(0, 0)
             ball.dy = random.uniform(0.02, 0.04)
             ball.dx = random.uniform(0.02, 0.04)
             score_b += 1
             pen.clear()
-            pen.write("Player A: {} Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
+            pen.write("{}: {} {}: {}".format(playerA, score_a, playerB, score_b), align="center", font=("Courier", 24, "normal"))
+
+            if score_b >= 5:
+                game_not_over = False
+                pen.clear()
+                pen.write(f"{playerB} wins!", align="center", font=("Courier", 24, "normal"))
 
         # Paddle and ball collisions
         if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() -50): # 50 ensures edges of paddle count as hits
