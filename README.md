@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/56422761/172072005-6aa99131-0e7b-4d78-a3af-68e92b561b4f.png)
 
-This is going to be a small project where I will recreate a few arcade games using Python. I'll then bundl the games and containerize them as a single image so people. This will ensure that anyone who can run Docker will be able to play my arcade games. I'll add more games in the future.
+This is going to be a small project where I will recreate a few arcade games using Python. I'll then bundle the games and containerize them as a single image so people will have a centralized image for all the games. This will ensure that anyone who can run Docker will be able to play my arcade games. I'll add more games in the future.
 
 
 ## What This Includes
