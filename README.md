@@ -18,7 +18,7 @@ You'll need one of the following
 
 
 ## Quick Start
-You can go to [Docker Hub](https://hub.docker.com/repository/docker/crc8109/RK8D) to see where I'm hosting the image for RK8D as it is now. It only includes the game pong for now.
+You can go to [Docker Hub](https://hub.docker.com/repository/docker/crc8109/rk8d) to see where I'm hosting the image for RK8D as it is now. It only includes the game pong for now.
 
 ## Starting from Scratch
 Clone the repo. Then run `python3 pong.py`. That will start the only game made so far.
