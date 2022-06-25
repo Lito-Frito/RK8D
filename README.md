@@ -20,7 +20,7 @@ You'll need one of the following
 ## Quick Start
 If you have Docker, you can go to [Docker Hub](https://hub.docker.com/repository/docker/crc8109/rk8d) to see where I'm hosting the image for RK8D as it is now. It only includes the game pong for now.
 
-First, just pull the image by running the command `docker pull crc8109/rk8d:1.0`. Once you pull the image, run the following command in your terminal:
+First, just pull the image by running the command `docker pull crc8109/rk8d:latest`. Once you pull the image, run the following command in your terminal:
 
 `docker run -u=$(id -u $USER):$(id -g $USER) -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:rw --rm -it crc8109/rk8d:latest`. 
 
