@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
+
+# Import games
 import Pong.pong as pong
 
+# Greet players
 print("Hello friends.")
 welcome = input("Let's play a few games!")
 
+# Ensure that players can't pick too long a name
 player_a_too_long = True
 
 while player_a_too_long:
@@ -29,6 +33,7 @@ while player_b_too_long:
         player_b_too_long = False
     
 
+# Start the game
 boot = input("\nI'll boot up pong for you both.")
 
 instructions = input(f"\n{playerA}, you use W & S to move your paddle."

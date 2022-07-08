@@ -5,6 +5,7 @@ import random
 
 def game_loop(playerA, playerB):
 
+    # Create screen and title
     wn = turtle.Screen()
     wn.title("Pong by @crc8109")
     wn.bgcolor("black")
